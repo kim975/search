@@ -12,10 +12,15 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class SearchServiceImpl implements SearchService{
 
+    private final SearchReader searchReader;
     private final TrendSearchProcessor trendSearchProcessor;
 
     @Override
-    public List<SearchInfo.Main> getSearchResult(SearchCommand.SearchRequest searchRequest ) {
+    public List<SearchInfo.Main> getSearchResult(SearchCommand.SearchRequest searchRequest) {
+        //1. DB에 기존 검색 결과 조회
+        //2. DB에 존재시 결과 리턴
+        //3. 외부 API 호출 리턴
+
         List<TrendSearchDto> trendSearchDtoList = trendSearchProcessor.getTrendSearch(searchRequest);
 
         return trendSearchDtoList.stream()
