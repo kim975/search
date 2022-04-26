@@ -1,18 +1,27 @@
 package com.kim.search.infrastructure.search.trend;
 
+import com.kim.search.domain.search.trend.TrendSearchDto;
+import com.kim.search.domain.search.trend.TrendSearchMethod;
+
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class NaverTrendSearchApiCaller implements TrendSearchApiCaller {
 
     @Override
-    public void getTrendSearch() {
-        main();
+    public List<TrendSearchDto> getTrendSearch(String keyword) {
+        return null;
+    }
+
+    @Override
+    public boolean support(TrendSearchMethod trendSearchMethod) {
+        return TrendSearchMethod.naver == trendSearchMethod;
     }
 
     private void main() {
@@ -94,4 +103,6 @@ public class NaverTrendSearchApiCaller implements TrendSearchApiCaller {
             throw new RuntimeException("API 응답을 읽는데 실패했습니다.", e);
         }
     }
+
+
 }

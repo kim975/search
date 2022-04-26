@@ -1,4 +1,9 @@
 package com.kim.search.domain.search;
 
-public class SearchService {
+import java.util.List;
+
+public interface SearchService {
+
+    List<SearchInfo.Main> getSearchResult(SearchCommand.SearchRequest searchRequest);
+
 }
